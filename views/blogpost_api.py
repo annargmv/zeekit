@@ -31,7 +31,7 @@ def get_blogpost_by_id(blog_id):
     :return: a json object of a single blogpost
     """
     blogpost_by_id = session.query(Blogpost).get(blog_id)
-    blogpost_schema = BlogpostSchema(many=True)
+    blogpost_schema = BlogpostSchema(many=False)
     response = blogpost_schema.dump(blogpost_by_id)
 
     return json.dumps(response)
